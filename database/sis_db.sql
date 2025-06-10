@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 02:51 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Jun 11, 2024 at 02:51 AM
+-- Server version: 10.6.16-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sis_db`
 --
+CREATE DATABASE IF NOT EXISTS `sis_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `sis_db`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `academic_history`
 --
 
+DROP TABLE IF EXISTS `academic_history`;
 CREATE TABLE `academic_history` (
   `id` int(30) NOT NULL,
   `student_id` int(30) NOT NULL,
@@ -34,11 +37,11 @@ CREATE TABLE `academic_history` (
   `semester` varchar(200) NOT NULL,
   `year` varchar(200) NOT NULL,
   `school_year` text NOT NULL,
-  `status` int(10) NOT NULL DEFAULT 1 COMMENT '1= New,\r\n2= Regular,\r\n3= Returnee,\r\n4= Transferee',
-  `end_status` tinyint(3) NOT NULL DEFAULT 0 COMMENT '0=pending,\r\n1=Completed,\r\n2=Dropout,\r\n3=failed,\r\n4=Transferred-out,\r\n5=Graduated',
+  `status` int(10) NOT NULL DEFAULT 1 COMMENT '1= New, 2= Regular, 3= Returnee, 4= Transferee',
+  `end_status` tinyint(3) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=Completed, 2=Dropout, 3=failed, 4=Transferred-out, 5=Graduated',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `academic_history`
@@ -58,6 +61,7 @@ INSERT INTO `academic_history` (`id`, `student_id`, `course_id`, `semester`, `ye
 -- Table structure for table `course_list`
 --
 
+DROP TABLE IF EXISTS `course_list`;
 CREATE TABLE `course_list` (
   `id` int(30) NOT NULL,
   `department_id` int(30) NOT NULL,
@@ -67,7 +71,7 @@ CREATE TABLE `course_list` (
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_list`
@@ -93,6 +97,7 @@ INSERT INTO `course_list` (`id`, `department_id`, `name`, `description`, `status
 -- Table structure for table `department_list`
 --
 
+DROP TABLE IF EXISTS `department_list`;
 CREATE TABLE `department_list` (
   `id` int(30) NOT NULL,
   `name` text NOT NULL,
@@ -101,7 +106,7 @@ CREATE TABLE `department_list` (
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `department_list`
@@ -121,6 +126,7 @@ INSERT INTO `department_list` (`id`, `name`, `description`, `status`, `delete_fl
 -- Table structure for table `student_list`
 --
 
+DROP TABLE IF EXISTS `student_list`;
 CREATE TABLE `student_list` (
   `id` int(30) NOT NULL,
   `roll` varchar(100) NOT NULL,
@@ -136,7 +142,7 @@ CREATE TABLE `student_list` (
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student_list`
@@ -151,11 +157,12 @@ INSERT INTO `student_list` (`id`, `roll`, `firstname`, `middlename`, `lastname`,
 -- Table structure for table `system_info`
 --
 
+DROP TABLE IF EXISTS `system_info`;
 CREATE TABLE `system_info` (
   `id` int(30) NOT NULL,
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_info`
@@ -174,6 +181,7 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(50) NOT NULL,
   `firstname` varchar(250) NOT NULL,
@@ -187,7 +195,7 @@ CREATE TABLE `users` (
   `status` int(1) NOT NULL DEFAULT 1 COMMENT '0=not verified, 1 = verified',
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -226,7 +234,8 @@ ALTER TABLE `department_list`
 -- Indexes for table `student_list`
 --
 ALTER TABLE `student_list`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roll` (`roll`);
 
 --
 -- Indexes for table `system_info`
