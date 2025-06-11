@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/global_config_utils.php';
 require_once('inc/header.php');
 $page = isset($_GET['page']) ? basename($_GET['page']) : 'home';
 

@@ -8,14 +8,18 @@
     <title>PBIRT Institute | Accounting & Technology Training</title>
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="../assets/css/main.min.css" as="style">
-    <link rel="preload" href="../assets/js/main.min.js" as="script">
-    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="preload" href="<?php echo BASE_URL; ?>assets/css/main.min.css" as="style">
+    <link rel="preload" href="<?php echo BASE_URL; ?>assets/js/main.min.js" as="script">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/index.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
     <!-- Main CSS (optimized) -->
-    <link rel="stylesheet" href="../assets/css/main.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.min.css">
 
     <!-- Font Awesome (optimized loading) -->
     <script defer src="https://kit.fontawesome.com/c656c17c23.js" crossorigin="anonymous"></script>

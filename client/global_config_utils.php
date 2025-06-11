@@ -9,6 +9,17 @@
  * @version 1.1.0
  */
 
+// Define base URL with proper sanitization
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://');
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$scriptPath = dirname($_SERVER['SCRIPT_NAME']);
+
+// Normalize the path
+$scriptPath = str_replace('\\', '/', $scriptPath); // Convert backslashes to forward slashes
+$scriptPath = rtrim($scriptPath, '/') . '/';
+
+define('BASE_URL', $protocol . $host . $scriptPath);
+
 // ==============================================
 // SECURITY AND ERROR HANDLING CONFIGURATION
 // ==============================================
