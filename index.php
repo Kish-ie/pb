@@ -1,3 +1,3 @@
-<?php require_once('./config.php'); 
+<?php require_once('./admin_cpanel/config.php'); 
 redirect('admin');
 ?>
