@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBIRT Institute | Student Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/main.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo" aria-label="PBIRT Institute Home">
+                    <img src="assets/images/logo.svg" alt="PBIRT Institute Logo" width="180" height="60">
+                </a>
+                <div class="user-info">
+                    <span>Welcome, <strong id="username">John Doe</strong></span>
+                    <a href="/logout" class="btn btn-primary">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="dashboard-section" aria-labelledby="dashboard-heading">
+            <div class="container">
+                <h2 id="dashboard-heading">Student Dashboard</h2>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <h3>My Courses</h3>
+                        <ul id="my-courses">
+                            <!-- Courses will be loaded dynamically -->
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Upcoming Exams</h3>
+                        <ul id="upcoming-exams">
+                            <!-- Exams will be loaded dynamically -->
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Recent Announcements</h3>
+                        <ul id="recent-announcements">
+                            <!-- Announcements will be loaded dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 PBIRT Institute. All Rights Reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/sitemap">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

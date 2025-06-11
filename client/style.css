@@ -1,0 +1,332 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+.header{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+.in {
+    background-color: rgb(218, 37, 37);
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    align-items: center;
+    
+}
+
+.nav {
+    background-color: rgb(255, 255, 255);
+    height: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    width: 100%;
+    font-size: small;
+    margin-left: 20px;
+    gap: 80px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    cursor: pointer;
+}
+#course{
+    position: relative;
+    display: inline-block;
+}
+#course-content{
+    display: none;
+    position: absolute;
+    width: 100hv;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+#course:hover #course-content{
+    display: block;
+    
+}
+.nav-links button {
+    font-weight: 600;
+}
+
+.hero {
+    padding-top: 130px;
+    background-color: rgb(255, 255, 255);
+    background-image: url('hero.jpg');
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+@keyframes typing {
+    from { width: 0% }
+    to { width: 30% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--secondary) }
+}
+.hero h3 {
+    font-size: 50px;
+    color: white;
+    border-right: 3px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.hero h2 {
+    color: white;
+}
+
+.hero .cards {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.herocard{
+   gap: 50px; 
+    display: flex;
+    padding-top: 20px;
+    color: white;
+}
+.herocard .item{
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.438);
+    width: 200px;
+    height: 150px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 3;
+    border: 1px white solid;
+}
+.cards .item {
+    height: 90px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(218, 37, 37);
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    flex-direction: column;
+}
+
+.item a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.search {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.search input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+
+.search button {
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(153, 15, 15), rgb(218, 37, 37));
+    color: white;
+    cursor: pointer;
+}
+
+.About {
+    display: flex;
+    margin: 20px;
+    padding: 50px;
+    justify-content: space-between;
+}
+
+.About p{
+    width: 70%;
+    
+}
+.About img{
+    border-radius: 20px;
+}
+.About .next {
+    padding: 10px;
+    margin-left: 60px;
+}
+
+.About button {
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(153, 15, 15), rgb(218, 37, 37));
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .About {
+        flex-direction: column;
+    }
+
+    .img {
+        width: 100%;
+    }
+
+    .img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .next {
+        width: 100%;
+    }
+}
+
+
+.advert {
+    position: relative;
+    height: 200px;
+    /* Other styles */
+    background-image: url('hero.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:left;
+    color: white;
+    font-size: 20px;
+    text-shadow: black 1px 1px 10px  ;
+}
+
+.kit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    border-radius: 10px;
+    height: 90px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(218, 37, 37);
+    bottom: 0;
+    left: 50%;
+    color: white;
+    text-shadow: none;
+    font-size: 30px;
+    transform: translateX(-50%) translateY(50%);
+    width: 90%;
+    /* Other styles */
+
+}
+.course {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 80px;
+}
+
+.course .card {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid rgb(218, 37, 37);
+}
+
+.course .card img {
+    height: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+}
+
+.course .card .desc {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.course .card .desc h4:hover {
+    color: blue;
+}
+
+.course .card .desc button {
+    background-color: rgb(218, 37, 37);
+    border: none;
+    width: 100px;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .course {
+        flex-direction: column;
+        align-items: center;
+    }
+    .course .card {
+        width: 90%;
+    }
+}

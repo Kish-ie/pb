@@ -1,4 +1,5 @@
 <?php
+global $conn;
 require_once('../../config.php');
 if(isset($_GET['id'])){
     $qry = $conn->query("SELECT * FROM `course_list` where id = '{$_GET['id']}'");
