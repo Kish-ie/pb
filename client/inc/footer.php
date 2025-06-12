@@ -1,4 +1,8 @@
-    <!-- Footer with improved structure -->
+<?php
+require_once __DIR__ . '/../config/config.php'; // Include client-specific config
+?>
+
+<!-- Footer with improved structure -->
     <footer class="main-footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">

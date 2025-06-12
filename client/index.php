@@ -1,6 +1,6 @@
 <?php
 // Load global config
-require_once __DIR__ . '/global_config_utils.php';
+require_once __DIR__ . '/config/config.php';
 
 // Include shared header
 require_once __DIR__ . '/inc/header.php';

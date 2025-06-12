@@ -315,6 +315,12 @@ align-items: center;
 padding: 1rem 0;
 }
 
+.nav-links a.active {
+    color: var(--primary); /* Highlight active link */
+    pointer-events: none; /* Disable clicks on active link */
+    cursor: default; /* Change cursor to default */
+}
+
 .logo img {
 height: 50px;
 width: auto;
