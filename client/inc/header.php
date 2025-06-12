@@ -1,8 +1,3 @@
-<?php
-require_once __DIR__ . '/../config/config.php'; // Include client-specific config
-$currentPage = basename($_SERVER['SCRIPT_NAME']); // Get the current script name (e.g., index.php)
-$page = $_GET['page'] ?? 'home'; // Get the 'page' from query parameter, default to 'home'
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +16,7 @@ $page = $_GET['page'] ?? 'home'; // Get the 'page' from query parameter, default
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.min.css">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?php echo BASE_URL; ?>assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
     <!-- Main CSS (optimized) -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.min.css">
@@ -32,195 +27,195 @@ $page = $_GET['page'] ?? 'home'; // Get the 'page' from query parameter, default
     <!-- AOS CSS (loaded conditionally) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" media="print" onload="this.media='all'">
     <style>
-    /* ==========================================================================
-    Header Styles
-    ========================================================================== */
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: var(--shadow-sm);
-    }
+/* ==========================================================================
+Header Styles
+========================================================================== */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+box-shadow: var(--shadow-sm);
+}
 
-    .top-bar {
-        background-color: var(--primary);
-        color: var(--white);
-        padding: 0.5rem 0;
-        font-size: 0.875rem;
-    }
+.top-bar {
+background-color: var(--primary);
+color: var(--white);
+padding: 0.5rem 0;
+font-size: 0.875rem;
+}
 
-    .top-bar-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.top-bar-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
 
-    .contact-info a {
-        color: var(--white);
-        margin-right: 1.5rem;
-        display: inline-flex;
-        align-items: center;
-    }
+.contact-info a {
+color: var(--white);
+margin-right: 1.5rem;
+display: inline-flex;
+align-items: center;
+}
 
-    .contact-info a:hover {
-        opacity: 0.9;
-    }
+.contact-info a:hover {
+opacity: 0.9;
+}
 
-    .contact-info i {
-        margin-right: 0.5rem;
-    }
+.contact-info i {
+margin-right: 0.5rem;
+}
 
-    .social-links {
-        display: flex;
-        align-items: center;
-    }
+.social-links {
+display: flex;
+align-items: center;
+}
 
-    .social-links span {
-        margin-right: 0.75rem;
-    }
+.social-links span {
+margin-right: 0.75rem;
+}
 
-    .social-links a {
-        color: var(--white);
-        margin-left: 0.75rem;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(255, 255, 255, 0.2);
-        transition: var(--transition);
-    }
+.social-links a {
+color: var(--white);
+margin-left: 0.75rem;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background-color: rgba(255, 255, 255, 0.2);
+transition: var(--transition);
+}
 
-    .social-links a:hover {
-        background-color: var(--white);
-        color: var(--primary);
-    }
+.social-links a:hover {
+background-color: var(--white);
+color: var(--primary);
+}
 
-    .main-nav {
-        background-color: var(--white);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+.main-nav {
+background-color: var(--white);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .nav-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
-    }
+.nav-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 0;
+}
 
-    .logo img {
-        height: 50px;
-        width: auto;
-    }
+.logo img {
+height: 50px;
+width: auto;
+}
 
-    .mobile-menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-        z-index: 1001;
-    }
+.mobile-menu-toggle {
+display: none;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0.5rem;
+z-index: 1001;
+}
 
-    .mobile-menu-toggle .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--dark);
-        margin: 5px 0;
-        transition: var(--transition);
-    }
+.mobile-menu-toggle .bar {
+display: block;
+width: 25px;
+height: 3px;
+background-color: var(--dark);
+margin: 5px 0;
+transition: var(--transition);
+}
 
-    .nav-links {
-        display: flex;
-        list-style: none;
-    }
+.nav-links {
+display: flex;
+list-style: none;
+}
 
-    .nav-links > li {
-        position: relative;
-        margin-left: 1.5rem;
-    }
+.nav-links > li {
+position: relative;
+margin-left: 1.5rem;
+}
 
-    .nav-links a {
-        color: var(--dark);
-        font-weight: 600;
-        padding: 0.5rem 0;
-        position: relative;
-    }
+.nav-links a {
+color: var(--dark);
+font-weight: 600;
+padding: 0.5rem 0;
+position: relative;
+}
 
-    .nav-links a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--primary);
-        transition: var(--transition);
-    }
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 0;
+height: 2px;
+background-color: var(--primary);
+transition: var(--transition);
+}
 
-    .nav-links a:hover::after,
-    .nav-links .active::after {
-        width: 100%;
-    }
+.nav-links a:hover::after,
+.nav-links .active::after {
+width: 100%;
+}
 
-    .dropdown-toggle {
-        background: none;
-        border: none;
-        font-family: inherit;
-        font-weight: 600;
-        color: var(--dark);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-    }
+.dropdown-toggle {
+background: none;
+border: none;
+font-family: inherit;
+font-weight: 600;
+color: var(--dark);
+cursor: pointer;
+display: flex;
+align-items: center;
+}
 
-    .dropdown-toggle i {
-        margin-left: 0.25rem;
-        transition: var(--transition);
-    }
+.dropdown-toggle i {
+margin-left: 0.25rem;
+transition: var(--transition);
+}
 
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 200px;
-        background-color: var(--white);
-        box-shadow: var(--shadow-lg);
-        border-radius: var(--radius-md);
-        padding: 0.5rem 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: var(--transition);
-        z-index: 100;
-    }
+.dropdown-menu {
+position: absolute;
+top: 100%;
+left: 0;
+min-width: 200px;
+background-color: var(--white);
+box-shadow: var(--shadow-lg);
+border-radius: var(--radius-md);
+padding: 0.5rem 0;
+opacity: 0;
+visibility: hidden;
+transform: translateY(10px);
+transition: var(--transition);
+z-index: 100;
+}
 
-    .dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
+.dropdown:hover .dropdown-menu {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
 
-    .dropdown-menu li {
-        margin: 0;
-    }
+.dropdown-menu li {
+margin: 0;
+}
 
-    .dropdown-menu a {
-        display: block;
-        padding: 0.5rem 1.5rem;
-        color: var(--dark);
-        transition: var(--transition);
-    }
+.dropdown-menu a {
+display: block;
+padding: 0.5rem 1.5rem;
+color: var(--dark);
+transition: var(--transition);
+}
 
-    .dropdown-menu a:hover {
-        background-color: var(--gray);
-        color: var(--primary);
-    }
-    </style>
+.dropdown-menu a:hover {
+background-color: var(--gray);
+color: var(--primary);
+}
+</style>
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
@@ -259,8 +254,8 @@ $page = $_GET['page'] ?? 'home'; // Get the 'page' from query parameter, default
         <nav class="main-nav" role="navigation" aria-label="Main navigation">
             <div class="container">
                 <div class="nav-content">
-                    <a href="<?= BASE_URL ?>index.php?page=home" class="logo" aria-label="PBIRT Institute Home">
-                        <img src="<?= BASE_URL ?>assets/images/logo.svg" alt="PBIRT Institute Logo" width="180" height="60">
+                    <a href="/" class="logo" aria-label="PBIRT Institute Home">
+                        <img src="assets/images/logo.svg" alt="PBIRT Institute Logo" width="180" height="60">
                     </a>
 
                     <!-- Mobile menu button -->
@@ -272,96 +267,41 @@ $page = $_GET['page'] ?? 'home'; // Get the 'page' from query parameter, default
                     </button>
 
                     <ul id="primary-navigation" class="nav-links">
-                        <!-- Home Link -->
-                        <li>
-                            <a href="<?= ($page === 'home') ? 'javascript:void(0);' : BASE_URL . 'index.php?page=home'; ?>"
-                               class="<?= ($page === 'home') ? 'active' : ''; ?>">
-                                Home
-                            </a>
-                        </li>
-
-                        <!-- About Us -->
-                        <li>
-                            <a href="<?= ($page === 'about') ? 'javascript:void(0);' : BASE_URL . 'about.php'; ?>"
-                               class="<?= ($page === 'about') ? 'active' : ''; ?>">
-                                About
-                            </a>
-                        </li>
-
-                        <!-- Courses -->
+                        <li><a href="<?php echo BASE_URL; ?>index.php/?page=home" class="active">Home</a></li>
                         <li class="dropdown">
-                            <button class="dropdown-toggle" aria-expanded="false" aria-controls="courses-dropdown">
-                                Courses <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            <button class="dropdown-toggle" aria-expanded="false" aria-controls="about-dropdown">
+                                About Us <i class="fas fa-chevron-down" aria-hidden="true"></i>
                             </button>
-                            <ul id="courses-dropdown" class="dropdown-menu">
-                                <li><a href="<?= ($page === 'courses') ? 'javascript:void(0);' : BASE_URL . 'courses/index.php?page=courses'; ?>"
-                                       class="<?= ($page === 'courses') ? 'active' : ''; ?>">Certified Public Accountants (CPA)</a></li>
-                                <li><a href="<?= BASE_URL ?>courses/atd">Accounting Technicians Diploma (ATD)</a></li>
-                                <li><a href="<?= BASE_URL ?>courses/cams">Certificate in Accounting & Management</a></li>
-                                <li><a href="<?= BASE_URL ?>courses/computer">Computer Packages</a></li>
-                                <li><a href="<?= BASE_URL ?>courses/graphic">Graphic Design</a></li>
-                                <li><a href="<?= BASE_URL ?>courses/accounting-software">Accounting Software</a></li>
+                            <ul id="about-dropdown" class="dropdown-menu">
+                                <li><a href="/about">Our Story</a></li>
+                                <li><a href="/mission">Mission & Vision</a></li>
+                                <li><a href="/team">Our Team</a></li>
+                                <li><a href="/partners">Partners</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+  <button class="dropdown-toggle" aria-expanded="false" aria-controls="courses-dropdown">
+    Courses <i class="fas fa-chevron-down" aria-hidden="true"></i>
+  </button>
+  <ul id="courses-dropdown" class="dropdown-menu">
+    <li><a href="<?php echo BASE_URL; ?>courses/?page=courses">Certified Public Accountants (CPA)</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/atd">Accounting Technicians Diploma (ATD)</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/cams">Certificate in Accounting & Management</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/computer">Computer Packages</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/graphic">Graphic Design</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/accounting-software">Accounting Software</a></li>
+  </ul>
+</li>
 
-<<<<<<< Updated upstream
                         <li><a href="<?php echo BASE_URL; ?>./trainings/?page=trainings">Training & Consultancies</a></li>
-                        <li><a href="<?php echo BASE_URL; ?>./gallery/?page=gallery">Gallery</a></li>
-                        <li><a href="<?php echo BASE_URL; ?>./vacancies/?page=vacancies">Vacancies</a></li>
-                        <li><a href="<?php echo BASE_URL; ?>./contact/?page=contact">Contact</a></li>
-                        <li><a href="<?php echo BASE_URL; ?>./downloads/?page=downloads">Downloads</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/vacancies">Vacancies</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/downloads">Downloads</a></li>
                         <!-- Add the login button here -->
                         <li><a href="login.html" class="btn btn-primary">Login</a></li>
-=======
-                        <!-- Contact -->
-                        <li>
-                            <a href="<?= ($page === 'contact') ? 'javascript:void(0);' : BASE_URL . 'contact.php'; ?>"
-                               class="<?= ($page === 'contact') ? 'active' : ''; ?>">
-                                Contact
-                            </a>
-                        </li>
-
-                        <!-- Training & Consultancies -->
-                        <li>
-                            <a href="<?= ($page === 'trainings') ? 'javascript:void(0);' : BASE_URL . 'trainings/?page=trainings'; ?>"
-                               class="<?= ($page === 'trainings') ? 'active' : ''; ?>">
-                                Training & Consultancies
-                            </a>
-                        </li>
-
-                        <!-- Gallery -->
-                        <li>
-                            <a href="<?= ($page === 'gallery') ? 'javascript:void(0);' : BASE_URL . 'gallery'; ?>"
-                               class="<?= ($page === 'gallery') ? 'active' : ''; ?>">
-                                Gallery
-                            </a>
-                        </li>
-
-                        <!-- Vacancies -->
-                        <li>
-                            <a href="<?= ($page === 'vacancies') ? 'javascript:void(0);' : BASE_URL . 'vacancies'; ?>"
-                               class="<?= ($page === 'vacancies') ? 'active' : ''; ?>">
-                                Vacancies
-                            </a>
-                        </li>
-
-                        <!-- Downloads -->
-                        <li>
-                            <a href="<?= ($page === 'downloads') ? 'javascript:void(0);' : BASE_URL . 'downloads'; ?>"
-                               class="<?= ($page === 'downloads') ? 'active' : ''; ?>">
-                                Downloads
-                            </a>
-                        </li>
-
-                        <!-- Login -->
-                        <li>
-                            <a href="<?= BASE_URL ?>login.html" class="btn btn-primary">Login</a>
-                        </li>
->>>>>>> Stashed changes
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-</body>
-</html>
