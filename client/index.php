@@ -6,7 +6,7 @@ require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/inc/header.php';
 
 // List of allowed folders/pages
-$allowedPages = ['home', 'dashboard', 'courses', 'trainings', 'user', 'student', 'course_view','gallery','contact','vacancies','downloads'];
+$allowedPages = ['home', 'dashboard', 'courses', 'trainings', 'user', 'student', 'course_view','gallery','contact','vacancies','downloads','about'];
 
 // Get requested page from URL (e.g., ?page=dashboard)
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
