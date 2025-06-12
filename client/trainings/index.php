@@ -1,7 +1,15 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../inc/header.php';
-require_once __DIR__ . '/../DBConnection.php';
+require_once __DIR__ . '/../classes/DBConnection.php';
+
+// Instantiate DBConnection
+$dbConnection = new DBConnection();
+$conn = $dbConnection->getConnection();
+
+if ($conn === null) {
+    die("Database connection failed. Check configuration and logs.");
+}
 ?>
 <link rel="stylesheet" href="../assets/css/index.css">
 
@@ -15,12 +23,12 @@ require_once __DIR__ . '/../DBConnection.php';
     .hero1 {
         position: relative;
         height: 70vh;
-min-height: 500px;
-display: flex;
-justify-content:center;
-flex-direction:column;
-align-items:center;
-        background: linear-gradient(to right, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3)), 
+        min-height: 500px;
+        display: flex;
+        justify-content:center;
+        flex-direction:column;
+        align-items:center;
+        background: linear-gradient(to right, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3)),
                     url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80') no-repeat center center;
         background-size: cover;
         filter:blur;
@@ -29,7 +37,6 @@ align-items:center;
         text-align: center;
         margin-bottom: 30px;
         height:auto;
-        
     }
 
     .hero h1 {
@@ -44,7 +51,6 @@ align-items:center;
         max-width: 700px;
         font-weight:600;
         margin: 0 auto;
-        
     }
 
     /* ===== DEPARTMENTS SECTION ===== */
@@ -212,7 +218,9 @@ align-items:center;
     } catch (Exception $e) {
         echo '<p style="color:red; padding: 20px; text-align: center;">Error: ' . htmlspecialchars($e->getMessage()) . '</p>';
     } finally {
-        $conn->close();
+        if ($conn) {
+            $conn->close();
+        }
     }
     ?>
 </div>

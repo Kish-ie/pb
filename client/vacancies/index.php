@@ -1,7 +1,15 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../inc/header.php';
-require_once __DIR__ . '/../DBConnection.php';
+require_once __DIR__ . '/../classes/DBConnection.php';
+
+// Instantiate DBConnection and get the connection
+$dbConnection = new DBConnection();
+$conn = $dbConnection->getConnection();
+
+if ($conn === null) {
+    die("Database connection failed. Check configuration and logs.");
+}
 ?>
 <link rel="stylesheet" href="../assets/css/index.css">
 
@@ -101,7 +109,9 @@ require_once __DIR__ . '/../DBConnection.php';
     } catch (Exception $e) {
         echo "<p style='color:red;'>Error loading vacancies: " . htmlspecialchars($e->getMessage()) . "</p>";
     } finally {
-        $conn->close();
+        if ($conn) {
+            $conn->close();
+        }
     }
     ?>
 </div>

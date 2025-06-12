@@ -1,6 +1,6 @@
 <?php
 /**
- * Global Configuration and Utility Functions for Client Side
+ * Global Configuration and Utility Functions for the Client Side
  *
  * This file contains system-wide configurations, path definitions, and utility functions
  * for the client side of the PBIRT application.
@@ -18,7 +18,7 @@
  */
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
              (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? 'https://' : 'http://';
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$host = $_SERVER['HTTP_HOST'] ?? '198.251.88.32';
 $scriptPath = dirname($_SERVER['SCRIPT_NAME']);
 
 // Normalize the path
@@ -116,8 +116,8 @@ function include_inc($filename, $once = true) {
 /**
  * Get full system path for a file in specified directory
  *
- * @param string $type Directory type (inc, assets, css, js, classes, config)
- * @param string $filename File to append to path
+ * @param string $type Directory type (inc, assets, CSS, js, classes, config)
+ * @param string $filename File to append to a path
  * @return string Full system path
  */
 function get_path($type, $filename = '') {
@@ -208,7 +208,7 @@ function include_global_css() {
 // DATABASE AND SESSION INITIALIZATION
 // ==============================================
 
-// Initialize database connection with configurable path
+// Initialize database connection with a configurable path
 $dbConnectionFile = get_path('classes', 'dbconnection.php'); // Line 212
 if (file_exists($dbConnectionFile)) {
     safe_include($dbConnectionFile);
