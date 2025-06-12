@@ -92,10 +92,9 @@ $currentUrl = $_SERVER['REQUEST_URI']; // Get the full current URL for refresh
                                 <i class="fas fa-chevron-down" aria-hidden="true"></i>
                             </button>
                             <ul id="about-dropdown" class="dropdown-menu">
-                                <li><a href="/about">Our Story</a></li>
-                                <li><a href="/mission">Mission & Vision</a></li>
-                                <li><a href="/team">Our Team</a></li>
-                                <li><a href="/partners">Partners</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>./about/?page=about#our-story">Our Story</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>./about/?page=about#mission">Mission & Vision</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>./about/?page=about#partners">Partners</a></li>
                             </ul>
                         </li>
 
