@@ -6,7 +6,7 @@ require_once __DIR__ . '/global_config_utils.php';
 require_once __DIR__ . '/inc/header.php';
 
 // List of allowed folders/pages
-$allowedPages = ['home', 'dashboard', 'courses', 'trainings', 'user', 'student', 'course_view'];
+$allowedPages = ['home', 'dashboard', 'courses', 'trainings', 'user', 'student', 'course_view','gallery','contact','vacancies','downloads'];
 
 // Get requested page from URL (e.g., ?page=dashboard)
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';

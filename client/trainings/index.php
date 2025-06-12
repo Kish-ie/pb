@@ -7,27 +7,44 @@ require_once __DIR__ . '/../DBConnection.php';
 
 <style>
     /* ===== HERO SECTION ===== */
-    .hero {
+    *{
+        font: roboto;
+        padding: 0;
+        margin: 0;
+    }
+    .hero1 {
         position: relative;
-        background: linear-gradient(to right, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.7)), 
+        height: 70vh;
+min-height: 500px;
+display: flex;
+justify-content:center;
+flex-direction:column;
+align-items:center;
+        background: linear-gradient(to right, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3)), 
                     url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80') no-repeat center center;
         background-size: cover;
+        filter:blur;
         color: white;
         padding: 60px 20px;
         text-align: center;
         margin-bottom: 30px;
+        height:auto;
         
     }
 
     .hero h1 {
         font-size: 36px;
-        margin-bottom: 15px;
+        font-weight:600;
+        color:white;
+        margin-bottom: 45px;
     }
 
-    .hero p {
+    .hero1 p {
         font-size: 16px;
         max-width: 700px;
+        font-weight:600;
         margin: 0 auto;
+        
     }
 
     /* ===== DEPARTMENTS SECTION ===== */
@@ -141,8 +158,8 @@ require_once __DIR__ . '/../DBConnection.php';
 </style>
 
 <!-- ===== HERO SECTION ===== -->
-<div class="hero" style="height:200px;">
-    <h1>Explore Our Trainings</h1>
+<div class="hero1" style="height:200px;">
+    <h1 style="color:white;">Explore Our Trainings</h1>
     <p>Browse our professional training programs designed to enhance your skills and advance your career.</p>
 </div>
 

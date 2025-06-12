@@ -294,10 +294,10 @@ color: var(--primary);
 </li>
 
                         <li><a href="<?php echo BASE_URL; ?>./trainings/?page=trainings">Training & Consultancies</a></li>
-                        <li><a href="/gallery">Gallery</a></li>
-                        <li><a href="/vacancies">Vacancies</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="/downloads">Downloads</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>./gallery/?page=gallery">Gallery</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>./vacancies/?page=vacancies">Vacancies</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>./contact/?page=contact">Contact</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>./downloads/?page=downloads">Downloads</a></li>
                         <!-- Add the login button here -->
                         <li><a href="login.html" class="btn btn-primary">Login</a></li>
                     </ul>

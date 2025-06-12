@@ -76,7 +76,7 @@
                 <div class="about-grid">
                     <div class="about-image" data-aos="fade-right">
                         <picture>
-                            <source srcset="assets/images/about.webp" type="image/webp">
+                            <source srcset="assets/images/about.png" type="image/webp">
                             <img src="assets/images/about.jpg" alt="Students learning at PBIRT Institute" width="600" height="400" loading="lazy">
                         </picture>
                     </div>
@@ -159,7 +159,7 @@
                     <!-- Course 1 -->
                     <article class="course-card" data-aos="fade-up">
                         <div class="course-image">
-                            <img src="assets/images/cpa-course.jpg" alt="CPA Course" loading="lazy" width="400" height="250">
+                            <img src="https://images.unsplash.com/photo-1683884361203-69b7f969e9ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNwYXxlbnwwfHwwfHx8MA%3D%3D" alt="CPA Course" loading="lazy" width="400" height="250">
                             <span class="course-category">Accounting</span>
                         </div>
                         <div class="course-content">
@@ -188,7 +188,7 @@
                     <!-- Course 2 -->
                     <article class="course-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="course-image">
-                            <img src="assets/images/atd-course.jpg" alt="ATD Course" loading="lazy" width="400" height="250">
+                            <img src="assets/images/about.png" alt="ATD Course" loading="lazy" width="400" height="250">
                             <span class="course-category">Accounting</span>
                         </div>
                         <div class="course-content">
