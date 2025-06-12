@@ -267,7 +267,7 @@ color: var(--primary);
                     </button>
 
                     <ul id="primary-navigation" class="nav-links">
-                        <li><a href="/" class="active">Home</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>index.php/?page=home" class="active">Home</a></li>
                         <li class="dropdown">
                             <button class="dropdown-toggle" aria-expanded="false" aria-controls="about-dropdown">
                                 About Us <i class="fas fa-chevron-down" aria-hidden="true"></i>
@@ -280,19 +280,20 @@ color: var(--primary);
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <button class="dropdown-toggle" aria-expanded="false" aria-controls="courses-dropdown" ><a href="../courses/course_view.php?page=courses">Courses</a>
-                                 <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                            </button>
-                            <ul id="courses-dropdown" class="dropdown-menu">
-                                <li><a href="../courses/course_view.php">Certified Public Accountants (CPA)</a></li>
-                                <li><a href="./courses/atd">Accounting Technicians Diploma (ATD)</a></li>
-                                <li><a href="/courses/cams">Certificate in Accounting & Management</a></li>
-                                <li><a href="/courses/computer">Computer Packages</a></li>
-                                <li><a href="/courses/graphic">Graphic Design</a></li>
-                                <li><a href="/courses/accounting-software">Accounting Software</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/training">Training & Consultancies</a></li>
+  <button class="dropdown-toggle" aria-expanded="false" aria-controls="courses-dropdown">
+    Courses <i class="fas fa-chevron-down" aria-hidden="true"></i>
+  </button>
+  <ul id="courses-dropdown" class="dropdown-menu">
+    <li><a href="<?php echo BASE_URL; ?>courses/?page=courses">Certified Public Accountants (CPA)</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/atd">Accounting Technicians Diploma (ATD)</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/cams">Certificate in Accounting & Management</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/computer">Computer Packages</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/graphic">Graphic Design</a></li>
+    <li><a href="<?php echo BASE_URL; ?>courses/accounting-software">Accounting Software</a></li>
+  </ul>
+</li>
+
+                        <li><a href="<?php echo BASE_URL; ?>./trainings/?page=trainings">Training & Consultancies</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                         <li><a href="/vacancies">Vacancies</a></li>
                         <li><a href="/contact">Contact</a></li>

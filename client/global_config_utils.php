@@ -8,7 +8,7 @@
  * @package PBIRT
  * @version 1.1.0
  */
-
+ 
 // Define base URL with proper sanitization
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://');
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
