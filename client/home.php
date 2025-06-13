@@ -13,13 +13,13 @@
                         <span class="subheading" style="color: white;">Own your future by learning new skills online</span>
                     </h1>
                     
-                    <form class="course-search" role="search" aria-label="Course search" method="GET" action="<?php echo BASE_URL; ?>./search/?page=search">
-    <label for="course-search" class="sr-only">Search courses</label>
-    <input type="search" id="course-search" name="q" placeholder="Search courses..." aria-placeholder="Search courses" required>
-    <button type="submit" aria-label="Search">
-        <i class="fas fa-search" aria-hidden="true"></i>
-    </button>
-</form>
+                    <form class="course-search" role="search" aria-label="Course search">
+                        <label for="course-search" class="sr-only">Search courses</label>
+                        <input type="search" id="course-search" placeholder="Search courses..." aria-placeholder="Search courses">
+                        <button type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
                     
                     <div class="hero-cards">
                         <div class="card">
@@ -248,10 +248,11 @@
 
         <!-- Testimonials section -->
         <section class="testimonials-section" aria-labelledby="testimonials-heading">
-            <div class="container">
-                <h2 id="testimonials-heading">What Our Students Say</h2>
-                <p class="section-subtitle">Success stories from our alumni community</p>
-                
+    <div class="container">
+        <div class="section-header">
+            <h2 id="testimonials-heading">What Our Students Say</h2>
+            <p class="section-subtitle">Success stories from our alumni community</p>
+        </div>
                 <div class="testimonials-slider">
                     <div class="testimonial" data-aos="fade-right">
                         <div class="testimonial-content">
@@ -441,8 +442,8 @@
                                 <div>
                                     <h3>Working Hours</h3>
                                     <p>
-                                        Monday - Friday: 8:00 AM - 5:00 PM<br>
-                                        Saturday: 9:00 AM - 2:00 PM<br>
+                                        Monday–Friday: 8:00 AM-5:00 PM<br>
+                                        Saturday: 9:00 AM-2:00 PM<br>
                                         Sunday: Closed
                                     </p>
                                 </div>
@@ -514,7 +515,7 @@
             </div>
         </section>
 
-        <!-- Campus Map Section -->
+        <!-- Campus Map Section
         <section class="map-section" aria-label="Campus location map">
             <div class="container">
                 <h2 class="sr-only">Our Location</h2>
@@ -533,6 +534,7 @@
             </div>
         </section>
     </main>
+-->
 
     <?php require_once('./inc/footer.php'); ?>
 
@@ -577,5 +579,5 @@
             document.body.appendChild(script);
         }
     </script>
-</body>
+</main>
 </html>
