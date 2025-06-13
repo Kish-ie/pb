@@ -13,13 +13,19 @@
                         <span class="subheading" style="color: white;">Own your future by learning new skills online</span>
                     </h1>
                     
-                    <form class="course-search" role="search" aria-label="Course search">
-                        <label for="course-search" class="sr-only">Search courses</label>
-                        <input type="search" id="course-search" placeholder="Search courses..." aria-placeholder="Search courses">
-                        <button type="submit" aria-label="Search">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </button>
-                    </form>
+                    <form class="course-search" role="search" aria-label="Course search" method="GET" action="<?= BASE_URL ?>search/">
+    <label for="course-search" class="sr-only">Search courses</label>
+    <input type="search" 
+           id="course-search" 
+           name="q" 
+           placeholder="What do you want to learn today?" 
+           aria-placeholder="Search courses"
+           value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>"
+           required>
+    <button type="submit" aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+    </button>
+</form>
                     
                     <div class="hero-cards">
                         <div class="card">

@@ -48,6 +48,7 @@ function navUrl($pageName) {
         width: 100%;
         z-index: 1000;
         box-shadow: var(--shadow-sm);
+        font-size:small;
     }
 
     .top-bar {
@@ -323,7 +324,7 @@ function navUrl($pageName) {
             <div class="container">
                 <div class="nav-content">
                     <a href="<?= BASE_URL ?>index.php?page=home" class="logo" aria-label="PBIRT Institute Home">
-                        <img src="<?= BASE_URL ?>assets/images/logo.svg" alt="PBIRT Institute Logo" width="180" height="60">
+                        <img src="<?= BASE_URL ?>assets/images/logo.png" alt="PBIRT Institute Logo" width="180" height="60">
                     </a>
 
                     <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="primary-navigation">
