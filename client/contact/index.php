@@ -7,7 +7,7 @@ require_once __DIR__ . '/../inc/header.php';
 <style>
     .contact-container {
         max-width: 1000px;
-        margin: 40px auto;
+        margin: 240px auto;
         padding: 30px;
         background: #fff;
         box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);

@@ -24,13 +24,13 @@
                     <div class="hero-cards">
                         <div class="card">
                             <h2>About Us</h2>
-                            <p>Discover our mission and values</p>
-                            <a href="/about" class="btn">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <p><i class="fa-solid fa-book"></i>Discover our mission and values</p>
+                            <a href="<?php echo BASE_URL; ?>./about/?page=about" class="btn">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="card">
                             <h2>Apply Now</h2>
                             <p>Start your learning journey</p>
-                            <a href="/apply" class="btn">Apply Now <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a href="<?php echo BASE_URL; ?>./courses/?page=courses" class="btn">Apply Now </a>
                         </div>
                         <div class="card">
                             <h2>Certifications</h2>
@@ -76,8 +76,8 @@
                 <div class="about-grid">
                     <div class="about-image" data-aos="fade-right">
                         <picture>
-                            <source srcset="assets/images/about.png" type="image/webp">
-                            <img src="assets/images/about.jpg" alt="Students learning at PBIRT Institute" width="600" height="400" loading="lazy">
+                            <source srcset="assets/images/add-a-heading.jpg" type="image/webp">
+                            <img src="assets/images/add-a-heading-2.jpg" alt="Students learning at PBIRT Institute" width="600" height="400" loading="lazy">
                         </picture>
                     </div>
                     <div class="about-content" data-aos="fade-left">
@@ -111,7 +111,7 @@
                             </ul>
                         </div>
                         
-                        <a href="/about" class="btn btn-primary">Learn More About Us</a>
+                        <a href="<?php echo BASE_URL; ?>./about/?page=about" class="btn btn-primary">Learn More About Us</a>
                     </div>
                 </div>
             </div>
@@ -326,7 +326,7 @@
         </section>
 
         <!-- News & Events Section -->
-        <section class="news-section" aria-labelledby="news-heading">
+       <!-- <section class="news-section" aria-labelledby="news-heading">
             <div class="container">
                 <div class="section-header">
                     <h2 id="news-heading">Latest News & Events</h2>
@@ -337,7 +337,7 @@
                 <div class="news-grid">
                     <article class="news-card" data-aos="fade-up">
                         <div class="news-image">
-                            <img src="assets/images/news1.jpg" alt="Graduation Ceremony" loading="lazy" width="400" height="250">
+                            <img src="assets/images/about.png" alt="Graduation Ceremony" loading="lazy" width="400" height="250">
                             <span class="news-date">
                                 <span class="day">15</span>
                                 <span class="month">Jun</span>
@@ -384,7 +384,7 @@
                     </article>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <!-- Contact Section with improved form -->
         <section class="contact-section" aria-labelledby="contact-heading">

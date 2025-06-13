@@ -25,7 +25,7 @@ function navUrl($pageName) {
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/index.css">
-    <!-- <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css"> -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.min.css">
 
     <!-- Favicon -->
@@ -322,8 +322,8 @@ function navUrl($pageName) {
         <nav class="main-nav" role="navigation" aria-label="Main navigation">
             <div class="container">
                 <div class="nav-content">
-                    <a href="<?php echo navUrl('home'); ?>" class="logo" aria-label="PBIRT Institute Home">
-                        <img src="<?php echo BASE_URL; ?>assets/images/logo.svg" alt="PBIRT Institute Logo" width="180" height="60">
+                    <a href="<?= BASE_URL ?>index.php?page=home" class="logo" aria-label="PBIRT Institute Home">
+                        <img src="<?= BASE_URL ?>assets/images/logo.svg" alt="PBIRT Institute Logo" width="180" height="60">
                     </a>
 
                     <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="primary-navigation">

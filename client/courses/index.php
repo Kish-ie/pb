@@ -96,21 +96,11 @@ if ($conn === null) {
     .pagination a:hover {
         background-color: #cc0000;
     }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-        .course-card {
-            width: calc(50% - 20px);
-        }
-    }
-
-    @media (max-width: 480px) {
-        .course-card {
-            width: 100%;
-        }
-    }
 </style>
-
+<div class="hero1" style="height:200px;">
+    <h1 style="color:white;">Explore Our Courses</h1>
+    <p>Browse our professional training programs designed to enhance your skills and advance your career.</p>
+</div>
 <div class="container1">
     <h1 style="color: #ff0000; text-align: center;">Our Courses</h1>
     <div class="courses">
@@ -150,7 +140,7 @@ if ($conn === null) {
                     $image = !empty($row["image_url"]) ? htmlspecialchars($row["image_url"], ENT_QUOTES, 'UTF-8') : '../assets/img/default-course.jpg';
 
                     echo '<div class="course-card">';
-                    echo '<img src="' . $image . '" alt="' . $courseName . '">';
+                    echo '<img src="https://plus.unsplash.com/premium_photo-1661903078140-b2f497f7bf02?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8b25saW5lJTIwbGVhcm5pbmd8ZW58MHx8MHx8fDA%3D" alt="' . $courseName . '">';
                     echo '<div class="course-content">';
                     echo '<h3>' . $courseName . '</h3>';
                     echo '<p>' . $courseDescription . '</p>';
