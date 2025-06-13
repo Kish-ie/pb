@@ -12,7 +12,7 @@ require_once __DIR__ . '/../inc/header.php';
                     url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
         background-size: cover;
         color: white;
-        padding: 80px 20px;
+        padding: 150px 20px;
         text-align: center;
         margin-bottom: 40px;
     }

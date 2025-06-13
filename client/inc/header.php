@@ -86,7 +86,10 @@ $currentUrl = $_SERVER['REQUEST_URI']; // Get the full current URL for refresh
                     </button>
 
                     <ul id="primary-navigation" class="nav-links">
-                        <li><a href="<?php echo BASE_URL; ?>index.php/?page=home" class="active">Home</a></li>
+                        <li><a href="<?= ($page === 'home') ? $currentUrl : BASE_URL . 'home/?page=home'; ?>"
+                               class="<?= ($page === 'home') ? 'active' : ''; ?>">
+                                home
+                            </a></li>
                         <li class="dropdown">
                             <button class="dropdown-toggle" aria-expanded="false" aria-controls="about-dropdown"><a href="<?php echo BASE_URL; ?>./about/?page=about"> About Us</a>
                                 <i class="fas fa-chevron-down" aria-hidden="true"></i>
@@ -116,7 +119,7 @@ $currentUrl = $_SERVER['REQUEST_URI']; // Get the full current URL for refresh
 
                         <!-- Contact -->
                         <li>
-                            <a href="<?= ($page === 'contact') ? $currentUrl : BASE_URL . 'contact.php'; ?>"
+                            <a href="<?= ($page === 'contact') ? $currentUrl : BASE_URL . 'contact/?page=contact'; ?>"
                                class="<?= ($page === 'contact') ? 'active' : ''; ?>">
                                 Contact
                             </a>
@@ -132,7 +135,7 @@ $currentUrl = $_SERVER['REQUEST_URI']; // Get the full current URL for refresh
 
                         <!-- Gallery -->
                         <li>
-                            <a href="<?= ($page === 'gallery') ? $currentUrl : BASE_URL . 'gallery'; ?>"
+                            <a href="<?= ($page === 'gallery') ? $currentUrl : BASE_URL . 'gallery/?page=gallery'; ?>"
                                class="<?= ($page === 'gallery') ? 'active' : ''; ?>">
                                 Gallery
                             </a>
@@ -140,7 +143,7 @@ $currentUrl = $_SERVER['REQUEST_URI']; // Get the full current URL for refresh
 
                         <!-- Vacancies -->
                         <li>
-                            <a href="<?= ($page === 'vacancies') ? $currentUrl : BASE_URL . 'vacancies'; ?>"
+                            <a href="<?= ($page === 'vacancies') ? $currentUrl : BASE_URL . 'vacancies/?page=vacancies'; ?>"
                                class="<?= ($page === 'vacancies') ? 'active' : ''; ?>">
                                 Vacancies
                             </a>
@@ -148,7 +151,7 @@ $currentUrl = $_SERVER['REQUEST_URI']; // Get the full current URL for refresh
 
                         <!-- Downloads -->
                         <li>
-                            <a href="<?= ($page === 'downloads') ? $currentUrl : BASE_URL . 'downloads'; ?>"
+                            <a href="<?= ($page === 'downloads') ? $currentUrl : BASE_URL . 'downloads/?page=downloads'; ?>"
                                class="<?= ($page === 'downloads') ? 'active' : ''; ?>">
                                 Downloads
                             </a>
