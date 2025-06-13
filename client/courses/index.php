@@ -96,6 +96,19 @@ if ($conn === null) {
     .pagination a:hover {
         background-color: #cc0000;
     }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .course-card {
+            width: calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .course-card {
+            width: 100%;
+        }
+    }
 </style>
 
 <div class="container1">
@@ -141,7 +154,8 @@ if ($conn === null) {
                     echo '<div class="course-content">';
                     echo '<h3>' . $courseName . '</h3>';
                     echo '<p>' . $courseDescription . '</p>';
-                    echo '<a href="../courses/course_view.php?page=course_view&id=' . $courseId . '">View Course</a>';
+                    // Corrected link to navigate to course_view.php
+                    echo '<a href="' . BASE_URL . 'courses/course_view.php?page=course_view&id=' . $courseId . '">View Course</a>';
                     echo '</div>';
                     echo '</div>';
                 }
@@ -156,7 +170,7 @@ if ($conn === null) {
                 echo '<div class="pagination">';
                 for ($i = 1; $i <= $totalPages; $i++) {
                     $active = ($i == $p) ? ' class="active"' : '';
-                    echo '<a href="../index.php?page=courses&p=' . $i . '"' . $active . '>' . $i . '</a>';
+                    echo '<a href="' . BASE_URL . 'index.php?page=courses&p=' . $i . '"' . $active . '>' . $i . '</a>';
                 }
                 echo '</div>';
             }

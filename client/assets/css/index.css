@@ -436,11 +436,11 @@ Hero Section
 ========================================================================== */
 .hero {
 position: relative;
-height: 100vh;
+height: auto;
 min-height: 700px;
 display: flex;
 align-items: center;
-background-image: url('../../hero.jpg');
+background-image: url('https://images.unsplash.com/photo-1645263012665-8ca659af16dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2VueWElMjBjb2xsZWdlJTIwc3R1ZGVudHN8ZW58MHx8MHx8fDA%3D');
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
@@ -523,9 +523,10 @@ flex-wrap: wrap;
 }
 
 .hero-cards .card {
-background-color: rgba(255, 255, 255, 0.9);
+background-color: rgba(255, 255, 255, 0);
 border-radius: var(--radius-md);
 padding: 2rem;
+border: 1px solid white;
 width: 280px;
 height: 30vh;
 text-align: center;
@@ -539,12 +540,15 @@ box-shadow: var(--shadow-lg);
 }
 
 .hero-cards h2 {
-color: var(--primary);
+color: white;
+
+font-weight: 600;
 margin-bottom: 0.5rem;
+text-transform: uppercase;
 }
 
 .hero-cards p {
-color: var(--text-light);
+color: rgb(255, 255, 255);
 margin-bottom: 1.5rem;
 }
 
@@ -592,6 +596,8 @@ opacity: 0.9;
 About Section
 ========================================================================== */
 .about-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
 background-color: var(--white);
 }
 
@@ -703,6 +709,7 @@ font-size: 0.9375rem;
 Courses Section
 ========================================================================== */
 .courses-section {
+    margin-bottom: 100px;
 background-color: var(--light);
 }
 
@@ -718,6 +725,7 @@ border-radius: var(--radius-md);
 overflow: hidden;
 box-shadow: var(--shadow-sm);
 transition: var(--transition);
+margin-bottom: 100px;
 }
 
 .course-card:hover {
@@ -818,6 +826,8 @@ color: var(--text-light);
 Testimonials Section
 ========================================================================== */
 .testimonials-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
 background-color: var(--white);
 position: relative;
 }
@@ -883,7 +893,7 @@ color: var(--text-light);
 CTA Section
 ========================================================================== */
 .cta-section {
-background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/cta-bg.jpg');
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/736x/9d/72/df/9d72df4952b0028db0de02d426a55205.jpg');
 background-size: cover;
 background-position: center;
 background-attachment: fixed;
@@ -1040,6 +1050,7 @@ Contact Section
 ========================================================================== */
 .contact-section {
 background-color: var(--white);
+margin-top: 100px;
 }
 
 .contact-grid {
