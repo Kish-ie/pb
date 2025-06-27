@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-require '../config.php';
+require_once __DIR__ . '/config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $roll = $conn->real_escape_string($_POST['roll']);

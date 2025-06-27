@@ -13,24 +13,30 @@
                         <span class="subheading" style="color: white;">Own your future by learning new skills online</span>
                     </h1>
                     
-                    <form class="course-search" role="search" aria-label="Course search">
-                        <label for="course-search" class="sr-only">Search courses</label>
-                        <input type="search" id="course-search" placeholder="Search courses..." aria-placeholder="Search courses">
-                        <button type="submit" aria-label="Search">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </button>
-                    </form>
+                    <form class="course-search" role="search" aria-label="Course search" method="GET" action="<?= BASE_URL ?>search/">
+    <label for="course-search" class="sr-only">Search courses</label>
+    <input type="search" 
+           id="course-search" 
+           name="q" 
+           placeholder="What do you want to learn today?" 
+           aria-placeholder="Search courses"
+           value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>"
+           required>
+    <button type="submit" aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+    </button>
+</form>
                     
                     <div class="hero-cards">
                         <div class="card">
                             <h2>About Us</h2>
-                            <p>Discover our mission and values</p>
-                            <a href="/about" class="btn">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <p><i class="fa-solid fa-book"></i>Discover our mission and values</p>
+                            <a href="<?php echo BASE_URL; ?>./about/?page=about" class="btn">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="card">
                             <h2>Apply Now</h2>
                             <p>Start your learning journey</p>
-                            <a href="/apply" class="btn">Apply Now <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a href="<?php echo BASE_URL; ?>./courses/?page=courses" class="btn">Apply Now </a>
                         </div>
                         <div class="card">
                             <h2>Certifications</h2>
@@ -76,8 +82,8 @@
                 <div class="about-grid">
                     <div class="about-image" data-aos="fade-right">
                         <picture>
-                            <source srcset="assets/images/about.webp" type="image/webp">
-                            <img src="assets/images/about.jpg" alt="Students learning at PBIRT Institute" width="600" height="400" loading="lazy">
+                            <source srcset="assets/images/add-a-heading.jpg" type="image/webp">
+                            <img src="assets/images/add-a-heading-2.jpg" alt="Students learning at PBIRT Institute" width="600" height="400" loading="lazy">
                         </picture>
                     </div>
                     <div class="about-content" data-aos="fade-left">
@@ -111,7 +117,7 @@
                             </ul>
                         </div>
                         
-                        <a href="/about" class="btn btn-primary">Learn More About Us</a>
+                        <a href="<?php echo BASE_URL; ?>./about/?page=about" class="btn btn-primary">Learn More About Us</a>
                     </div>
                 </div>
             </div>
@@ -159,7 +165,7 @@
                     <!-- Course 1 -->
                     <article class="course-card" data-aos="fade-up">
                         <div class="course-image">
-                            <img src="assets/images/cpa-course.jpg" alt="CPA Course" loading="lazy" width="400" height="250">
+                            <img src="https://images.unsplash.com/photo-1683884361203-69b7f969e9ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNwYXxlbnwwfHwwfHx8MA%3D%3D" alt="CPA Course" loading="lazy" width="400" height="250">
                             <span class="course-category">Accounting</span>
                         </div>
                         <div class="course-content">
@@ -188,7 +194,7 @@
                     <!-- Course 2 -->
                     <article class="course-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="course-image">
-                            <img src="assets/images/atd-course.jpg" alt="ATD Course" loading="lazy" width="400" height="250">
+                            <img src="assets/images/about.png" alt="ATD Course" loading="lazy" width="400" height="250">
                             <span class="course-category">Accounting</span>
                         </div>
                         <div class="course-content">
@@ -248,10 +254,11 @@
 
         <!-- Testimonials section -->
         <section class="testimonials-section" aria-labelledby="testimonials-heading">
-            <div class="container">
-                <h2 id="testimonials-heading">What Our Students Say</h2>
-                <p class="section-subtitle">Success stories from our alumni community</p>
-                
+    <div class="container">
+        <div class="section-header">
+            <h2 id="testimonials-heading">What Our Students Say</h2>
+            <p class="section-subtitle">Success stories from our alumni community</p>
+        </div>
                 <div class="testimonials-slider">
                     <div class="testimonial" data-aos="fade-right">
                         <div class="testimonial-content">
@@ -325,7 +332,7 @@
         </section>
 
         <!-- News & Events Section -->
-        <section class="news-section" aria-labelledby="news-heading">
+       <!-- <section class="news-section" aria-labelledby="news-heading">
             <div class="container">
                 <div class="section-header">
                     <h2 id="news-heading">Latest News & Events</h2>
@@ -336,7 +343,7 @@
                 <div class="news-grid">
                     <article class="news-card" data-aos="fade-up">
                         <div class="news-image">
-                            <img src="assets/images/news1.jpg" alt="Graduation Ceremony" loading="lazy" width="400" height="250">
+                            <img src="assets/images/about.png" alt="Graduation Ceremony" loading="lazy" width="400" height="250">
                             <span class="news-date">
                                 <span class="day">15</span>
                                 <span class="month">Jun</span>
@@ -383,7 +390,7 @@
                     </article>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <!-- Contact Section with improved form -->
         <section class="contact-section" aria-labelledby="contact-heading">
@@ -421,7 +428,7 @@
                                 </div>
                             </div>
                             
-                            div class="contact-item">
+                            <div class="contact-item">
                                 <div class="contact-icon">
                                     <i class="fas fa-envelope" aria-hidden="true"></i>
                                 </div>
@@ -441,8 +448,8 @@
                                 <div>
                                     <h3>Working Hours</h3>
                                     <p>
-                                        Monday - Friday: 8:00 AM - 5:00 PM<br>
-                                        Saturday: 9:00 AM - 2:00 PM<br>
+                                        Monday–Friday: 8:00 AM-5:00 PM<br>
+                                        Saturday: 9:00 AM-2:00 PM<br>
                                         Sunday: Closed
                                     </p>
                                 </div>
@@ -514,7 +521,7 @@
             </div>
         </section>
 
-        <!-- Campus Map Section -->
+        <!-- Campus Map Section
         <section class="map-section" aria-label="Campus location map">
             <div class="container">
                 <h2 class="sr-only">Our Location</h2>
@@ -533,6 +540,7 @@
             </div>
         </section>
     </main>
+-->
 
     <?php require_once('./inc/footer.php'); ?>
 
@@ -577,5 +585,5 @@
             document.body.appendChild(script);
         }
     </script>
-</body>
+</main>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2025 at 02:07 PM
+-- Generation Time: Jun 12, 2025 at 10:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -74,18 +74,39 @@ CREATE TABLE `course_list` (
 --
 
 INSERT INTO `course_list` (`id`, `department_id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(1, 2, 'BSIT', 'Bachelor of Science in Information Technology', 1, 0, '2022-01-27 10:03:25', NULL),
-(2, 4, 'CPA', 'Certified Public Accountants (CPA)', 1, 0, '2022-01-27 10:06:43', '2025-06-04 14:05:55'),
-(3, 4, 'BSEd', 'Bachelor of Secondary Education', 1, 0, '2022-01-27 10:07:21', NULL),
-(4, 4, 'MAEd', 'Master of Arts in Education', 1, 0, '2022-01-27 10:07:52', NULL),
-(5, 4, 'PhD Educ', 'Doctor of Philosophy in Education', 1, 0, '2022-01-27 10:08:21', NULL),
-(6, 1, 'BSCE', 'Bachelor of Science in Civil Engineering', 1, 0, '2022-01-27 10:08:48', NULL),
-(7, 1, 'MSCE', 'Master of Science in Civil Engineering', 1, 0, '2022-01-27 10:09:00', NULL),
-(8, 3, 'CAMS', 'Certificate in Accounting and Management Skills', 1, 0, '2022-01-27 10:09:35', '2025-06-04 15:34:25'),
-(9, 1, 'MS ChE', 'Master of Science in Chemical Engineering', 1, 0, '2022-01-27 10:10:16', NULL),
-(10, 1, 'DEngg ChE', 'Doctor of Engineering (Chemical Engineering)', 1, 0, '2022-01-27 10:10:39', NULL),
-(11, 1, 'BSCS', 'Bachelor of Science in Computer Science', 1, 0, '2022-01-27 10:12:23', NULL),
-(12, 1, 'MSCS', 'Master of Science in Computer Science', 1, 0, '2022-01-27 10:12:35', NULL);
+(1, 2, 'Accounting for Non-Accountants', 'Bachelor of Science in Information Technology', 1, 0, '2022-01-27 10:03:25', '2025-06-12 17:25:04'),
+(2, 4, 'CPA', 'Certified Public Accountants (CPA)', 1, 1, '2022-01-27 10:06:43', '2025-06-12 17:55:56'),
+(3, 4, 'BSEd', 'Bachelor of Secondary Education', 1, 1, '2022-01-27 10:07:21', '2025-06-12 17:52:45'),
+(4, 4, 'MAEd', 'Master of Arts in Education', 1, 1, '2022-01-27 10:07:52', '2025-06-12 17:55:11'),
+(5, 4, 'PhD Educ', 'Doctor of Philosophy in Education', 1, 1, '2022-01-27 10:08:21', '2025-06-12 17:40:46'),
+(6, 1, 'BSCE', 'Bachelor of Science in Civil Engineering', 1, 1, '2022-01-27 10:08:48', '2025-06-12 17:41:10'),
+(7, 1, 'MSCE', 'Master of Science in Civil Engineering', 1, 1, '2022-01-27 10:09:00', '2025-06-12 17:54:27'),
+(8, 3, 'CAMS', 'Certificate in Accounting and Management Skills', 1, 1, '2022-01-27 10:09:35', '2025-06-12 17:53:09'),
+(9, 1, 'MS ChE', 'Master of Science in Chemical Engineering', 1, 1, '2022-01-27 10:10:16', '2025-06-12 17:54:49'),
+(10, 1, 'DEngg ChE', 'Doctor of Engineering (Chemical Engineering)', 1, 1, '2022-01-27 10:10:39', '2025-06-12 17:55:34'),
+(11, 1, 'BSCS', 'Bachelor of Science in Computer Science', 1, 1, '2022-01-27 10:12:23', '2025-06-12 17:41:33'),
+(12, 1, 'MSCS', 'Master of Science in Computer Science', 1, 1, '2022-01-27 10:12:35', '2025-06-12 17:53:42'),
+(13, 3, '	Advanced Portfolio Management', '	Advanced Portfolio Management', 1, 0, '2025-06-12 17:57:36', NULL),
+(14, 3, 'Personal Finance', 'Personal Finance', 1, 0, '2025-06-12 17:58:13', NULL),
+(15, 3, 'Treasury and Risk Management', 'Treasury and Risk Management', 1, 0, '2025-06-12 17:58:44', NULL),
+(16, 3, 'Real Estate Development, Investment and Management', 'Real Estate Development, Investment and Management', 1, 0, '2025-06-12 18:00:18', NULL),
+(17, 3, 'Program for Managers and Executives in Strategic Communication', 'Program for Managers and Executives in Strategic Communication', 1, 0, '2025-06-12 18:00:59', NULL),
+(18, 3, 'Corporate Social Responsibility', 'Corporate Social Responsibility', 1, 0, '2025-06-12 18:02:29', NULL),
+(19, 3, 'Competency-Based Hiring', 'Competency-Based Hiring', 1, 0, '2025-06-12 18:03:29', NULL),
+(20, 3, 'Advanced Financial Management, Grants Management, and Auditing for Donor-Funded Projects', 'Advanced Financial Management, Grants Management, and Auditing for Donor-Funded Projects', 1, 0, '2025-06-12 18:04:41', NULL),
+(21, 4, 'Advanced Excel for Corporates', 'Advanced Excel for Corporates', 1, 0, '2025-06-12 18:05:47', NULL),
+(22, 4, 'Quantitative Data Management and Analysis with Stata Training', 'Quantitative Data Management and Analysis with Stata Training', 1, 0, '2025-06-12 18:06:23', NULL),
+(23, 4, 'Data Management and Statistical Analysis Using Stata', 'Data Management and Statistical Analysis Using Stata', 1, 0, '2025-06-12 18:07:05', NULL),
+(24, 4, 'Panel Data Models in Stata Course', 'Panel Data Models in Stata Course', 1, 0, '2025-06-12 18:07:52', NULL),
+(25, 4, 'Research Design, Data Management and Statistical Analysis Using Spss Workshop', 'Research Design, Data Management and Statistical Analysis Using Spss Workshop', 1, 0, '2025-06-12 18:08:30', NULL),
+(26, 1, 'Seminar on Nutritionally Intelligent and Nutritionally Resilient Programming', 'Seminar on Nutritionally Intelligent and Nutritionally Resilient Programming', 1, 0, '2025-06-12 18:09:18', NULL),
+(27, 1, 'Training Course on Infectious Disease Modelling and Applications', 'Training Course on Infectious Disease Modelling and Applications', 1, 0, '2025-06-12 18:09:56', NULL),
+(28, 1, 'Workshop on Behaviour Change Communication for Health Promotion', 'Workshop on Behaviour Change Communication for Health Promotion', 1, 0, '2025-06-12 18:10:47', NULL),
+(29, 1, 'Monitoring and Evaluation for Health Programs', 'Monitoring and Evaluation for Health Programs', 1, 0, '2025-06-12 18:13:19', NULL),
+(30, 7, 'Maintenance Scheduling Utilizing Big Data, IoT & Agent Based Simulation', 'Maintenance Scheduling Utilizing Big Data, IoT & Agent Based Simulation', 1, 0, '2025-06-12 18:14:07', NULL),
+(31, 7, 'Seminar on Cybercrime and Digital Vulnerability', 'Seminar on Cybercrime and Digital Vulnerability', 1, 0, '2025-06-12 18:14:58', NULL),
+(32, 7, 'Information Security and Data Management Training', 'Information Security and Data Management Training', 1, 0, '2025-06-12 18:17:11', NULL),
+(33, 7, 'Mobile Data Acquisition Utilizing Ona and Kobo Toolbox', 'Mobile Data Acquisition Utilizing Ona and Kobo Toolbox', 1, 0, '2025-06-12 18:19:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -108,12 +129,41 @@ CREATE TABLE `department_list` (
 --
 
 INSERT INTO `department_list` (`id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(1, 'CoEng', 'College of Engineering', 1, 0, '2022-01-27 09:22:31', '2022-01-27 09:33:36'),
-(2, 'CoAS', 'College of Arts and Science', 1, 0, '2022-01-27 09:22:54', '2022-01-27 09:33:03'),
-(3, 'CoB', 'College of Business', 1, 0, '2022-01-27 09:23:20', '2022-01-27 09:33:11'),
-(4, 'CoE', 'College of Education', 1, 0, '2022-01-27 09:25:42', '2022-01-27 09:33:18'),
-(5, 'CSSP', 'College of Social Sciences and Philosophy', 1, 0, '2022-01-27 09:26:35', '2022-01-27 09:33:49'),
-(6, 'Sample101', 'Deleted Department', 1, 1, '2022-01-27 09:27:17', '2022-01-27 09:27:28');
+(1, 'HEALTH SCIENCES COURSES', 'Health sciences is a broad field encompassing the study of human health, well-being, and medical care. It involves the application of scientific principles to understand, diagnose, treat, and prevent diseases and promote overall health.', 1, 0, '2022-01-27 09:22:31', '2025-06-12 17:29:18'),
+(2, 'ACCOUNTING COURSES', 'Accounting is the process of recording, summarizing, analyzing, and interpreting financial transactions for a business or organization.', 1, 0, '2022-01-27 09:22:54', '2025-06-12 17:23:57'),
+(3, 'BUSINESS COURSES', 'Business is an organization or enterprising entity engaged in commercial, industrial, or professional activities. It’s essentially any activity or enterprise undertaken for profit.', 1, 0, '2022-01-27 09:23:20', '2025-06-12 17:26:08'),
+(4, 'DATA ANALYTICS COURSES', 'Data analysis is the process of examining data to extract meaningful insights and information. It involves collecting, cleaning, transforming, and modeling data to discover patterns, trends, and relationships that can be used to make informed decisions.', 1, 0, '2022-01-27 09:25:42', '2025-06-12 17:27:32'),
+(5, 'CSSP', 'College of Social Sciences and Philosophy', 1, 1, '2022-01-27 09:26:35', '2025-06-12 17:37:08'),
+(6, 'Sample101', 'Deleted Department', 1, 1, '2022-01-27 09:27:17', '2022-01-27 09:27:28'),
+(7, 'ICT COURSES', 'ICT stands for Information and Communication Technology. It’s a broad term that refers to all the technologies used to transmit, store, create, share, or exchange information.', 1, 0, '2025-06-12 17:30:36', NULL),
+(8, 'MONITORING & EVALUATION COURSES', 'Monitoring and Evaluation (M&E) is a systematic process used to assess the progress, effectiveness, and impact of projects, programs, or initiatives. It involves collecting, analyzing, and using data to inform decision-making and improve outcomes.', 1, 0, '2025-06-12 17:31:29', NULL),
+(9, 'PEACE AND CONFLICT MANAGEMENT COURSES', 'Peace and conflict management is the study and practice of preventing, managing, and resolving conflicts peacefully. It involves understanding the root causes of conflict, developing conflict resolution strategies, and promoting peace and reconciliation.', 1, 0, '2025-06-12 17:32:06', NULL),
+(10, 'PROJECT MANAGEMENT COURSES', 'Project management is the process of planning, organizing, and overseeing the completion of a specific project. 1 It involves coordinating a team of people and resources to achieve defined objectives within a given timeframe and budget.', 1, 0, '2025-06-12 17:32:57', NULL),
+(11, 'SOCIAL DEVELOPMENT', 'Social development is an interdisciplinary field that focuses on understanding and addressing social issues and challenges. It combines elements of sociology, psychology, economics, political science, and other disciplines to examine how societies function and how they can be improved', 1, 0, '2025-06-12 17:33:42', NULL),
+(12, 'AGRICULTURE', 'Agriculture is the practice of cultivating plants and animals for food and other products.', 1, 0, '2025-06-12 17:36:03', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `download_list`
+--
+
+CREATE TABLE `download_list` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `file_path` text NOT NULL,
+  `date_uploaded` datetime DEFAULT current_timestamp(),
+  `status` tinyint(1) DEFAULT 1,
+  `delete_flag` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `download_list`
+--
+
+INSERT INTO `download_list` (`id`, `title`, `description`, `file_path`, `date_uploaded`, `status`, `delete_flag`) VALUES
+(1, 'ict book pdf', 'ict book', 'https://www.google.com/url?client=internal-element-cse&cx=76e901c945305e40e&q=http://lgs.edu.pk/wp-content/uploads/2016/02/ICT-BOOK-New-edition.pdf&sa=U&ved=2ahUKEwiyncCBp-yNAxXWQUEAHRBPH4EQFnoECAUQAQ&usg=AOvVaw3keHcb6QzKatmpOMki9H6R&fexp=72986053,72986052', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -135,6 +185,30 @@ CREATE TABLE `employee_list` (
   `avatar` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `image_url` text NOT NULL,
+  `description` text DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `title`, `image_url`, `description`, `date_created`) VALUES
+(1, 'pic', 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80', 'test image', '0000-00-00 00:00:00'),
+(2, 'pic', 'https://images.unsplash.com/photo-1575979016006-6c74267c4087?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvbGxlZ2UlMjBzdHVkZW50cyUyMGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D', 'test image', '0000-00-00 00:00:00'),
+(3, 'pic', 'https://images.unsplash.com/photo-1639436926668-2f8b4f32e15a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29sbGVnZSUyMHN0dWRlbnRzJTIwYWZyaWNhfGVufDB8fDB8fHww', 'test image', '0000-00-00 00:00:00'),
+(4, 'pic', 'https://images.unsplash.com/photo-1645263012668-a6617115f9b9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29sbGVnZSUyMHN0dWRlbnRzJTIwYWZyaWNhfGVufDB8fDB8fHww', 'test image', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -186,9 +260,9 @@ CREATE TABLE `system_info` (
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 (1, 'name', 'PB INSTITUTE OF RESEARCH AND TECHNOLOGY'),
 (6, 'short_name', 'Pbirt'),
-(11, 'logo', 'admin_cpanel/uploads/logo-1749035057.png'),
-(13, 'user_avatar', 'admin_cpanel/uploads/avatar-8.png'),
-(14, 'cover', 'admin_cpanel/uploads/cover-1749034962.png');
+(11, 'logo', 'uploads/logo-1749035057.png'),
+(13, 'user_avatar', 'uploads/user_avatar.jpg'),
+(14, 'cover', 'uploads/cover-1749034962.png');
 
 -- --------------------------------------------------------
 
@@ -219,6 +293,29 @@ INSERT INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `username`, `p
 (1, 'Adminstrator', NULL, 'Admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/avatar-1.png?v=1749038029', NULL, 1, 1, '2021-01-20 14:02:37', '2025-06-04 14:53:49'),
 (8, 'apollo', NULL, 'kim', 'jdoe', '6ad14ba9986e3615423dfca256d04e3f', 'uploads/avatar-8.png?v=1749397789', NULL, 2, 1, '2022-01-26 16:20:59', '2025-06-08 18:49:49');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vacancy_list`
+--
+
+CREATE TABLE `vacancy_list` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `date_posted` datetime DEFAULT current_timestamp(),
+  `status` tinyint(1) DEFAULT 1,
+  `delete_flag` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vacancy_list`
+--
+
+INSERT INTO `vacancy_list` (`id`, `title`, `description`, `department_id`, `date_posted`, `status`, `delete_flag`) VALUES
+(1, 'IT Tutor', 'teaching and supervising to learners', 2, '0000-00-00 00:00:00', 0, 0);
+
 --
 -- Indexes for dumped tables
 --
@@ -245,12 +342,24 @@ ALTER TABLE `department_list`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `download_list`
+--
+ALTER TABLE `download_list`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `employee_list`
 --
 ALTER TABLE `employee_list`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `code` (`code`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `student_list`
@@ -271,6 +380,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vacancy_list`
+--
+ALTER TABLE `vacancy_list`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -284,19 +399,31 @@ ALTER TABLE `academic_history`
 -- AUTO_INCREMENT for table `course_list`
 --
 ALTER TABLE `course_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `department_list`
 --
 ALTER TABLE `department_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `download_list`
+--
+ALTER TABLE `download_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employee_list`
 --
 ALTER TABLE `employee_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `student_list`
@@ -315,6 +442,12 @@ ALTER TABLE `system_info`
 --
 ALTER TABLE `users`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `vacancy_list`
+--
+ALTER TABLE `vacancy_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

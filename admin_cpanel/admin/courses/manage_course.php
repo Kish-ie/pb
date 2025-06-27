@@ -25,9 +25,9 @@ if(isset($_GET['id'])){
         <div class="form-group">
             <label for="department_id" class="control-label">Department</label>
             <select name="department_id" id="department_id" class="form-control form-control-sm form-control-border" required>
-                <option value="" disabled <?= !isset($deartment_id) ? "selected" : "" ?>></option>
+                <option value="" disabled <?= !isset($department_id) ? "selected" : "" ?>></option>
                 <?php 
-                $departments = $conn->query("SELECT * FROM `department_list` where delete_flag = 0 and `status` = 1 ".(isset($deartment_id)? " or id = '{$department_id}'" : "")." order by `name` asc");
+                $departments = $conn->query("SELECT * FROM `department_list` where delete_flag = 0 and `status` = 1 ".(isset($department_id)? " or id = '{$department_id}'" : "")." order by `name` asc");
                 while($row = $departments->fetch_assoc()):
                 ?>
                     <option value="<?= $row['id'] ?>" <?= isset($department_id) && $department_id == $row['id'] ? 'selected' : '' ?>><?= $row['name'] ?></option>
@@ -41,6 +41,10 @@ if(isset($_GET['id'])){
         <div class="form-group">
             <label for="description" class="control-label">Description</label>
             <textarea rows="3" name="description" id="description" class="form-control form-control-sm rounded-0" required><?php echo isset($description) ? ($description) : '' ?></textarea>
+        </div>
+        <div class="form-group">
+            <label for="notes" class="control-label">Notes</label>
+            <textarea rows="3" name="notes" id="notes" class="form-control form-control-sm rounded-0"><?php echo isset($notes) ? ($notes) : '' ?></textarea>
         </div>
         <div class="form-group">
             <label for="status" class="control-label">Status</label>

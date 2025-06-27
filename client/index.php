@@ -1,15 +1,25 @@
 <?php
-require_once __DIR__ . '/global_config_utils.php';
-require_once('inc/header.php');
-$page = isset($_GET['page']) ? basename($_GET['page']) : 'home';
+// Load global config
+require_once __DIR__ . '/config/config.php';
 
-if (!file_exists($page . ".php") && !is_dir($page)) {
-    include '404.php';
+// Include shared header
+require_once __DIR__ . '/inc/header.php';
+
+// List of allowed folders/pages
+$allowedPages = ['home', 'dashboard', 'courses', 'trainings', 'user', 'student', 'course_view','gallery','contact','vacancies','downloads','about','search'];
+
+// Get requested page from URL (e.g., ?page=dashboard)
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+// Build path: looking for /{page}/index.php
+$pagePath = __DIR__ . "/$page/index.php";
+
+// Validate and include the page
+if (in_array($page, $allowedPages) && file_exists($pagePath)) {
+    include $pagePath;
 } else {
-    if (is_dir($page)) {
-        include $page . '/index.php'; // this file should NOT use $page again
-    } else {
-        include $page . '.php';
-    }
+    include __DIR__ . '/home.php';
 }
-require_once('inc/footer.php');
+
+// Include shared footer
+require_once __DIR__ . '/inc/footer.php';

@@ -1,17 +1,24 @@
 <?php
 /**
- * Global Configuration and Utility Functions
- * 
+ * Global Configuration and Utility Functions for the Client Side
+ *
  * This file contains system-wide configurations, path definitions, and utility functions
- * for consistent file inclusion, path resolution, and asset management across the application.
+ * for the client side of the PBIRT application.
  *
  * @package PBIRT
  * @version 1.1.0
  */
 
-// Define base URL with proper sanitization
-$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://');
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+// ==============================================
+// BASE URL CONFIGURATION
+// ==============================================
+
+/**
+ * Define base URL with proper sanitization
+ */
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
+             (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? 'https://' : 'http://';
+$host = $_SERVER['HTTP_HOST'] ?? '198.251.88.32';
 $scriptPath = dirname($_SERVER['SCRIPT_NAME']);
 
 // Normalize the path
@@ -24,7 +31,7 @@ define('BASE_URL', $protocol . $host . $scriptPath);
 // SECURITY AND ERROR HANDLING CONFIGURATION
 // ==============================================
 
-// Disable error display in production
+// Define environment
 if (!defined('ENVIRONMENT')) {
     define('ENVIRONMENT', 'development'); // Change to 'production' for live site
 }
@@ -45,12 +52,13 @@ if (ENVIRONMENT === 'production') {
  * Define application base paths with directory separator awareness
  */
 define('DS', DIRECTORY_SEPARATOR);
-define('ROOT_PATH', dirname(__DIR__) . DS);
-define('CLIENT_PATH', __DIR__ . DS);
+define('ROOT_PATH', dirname(dirname(__DIR__)) . DS); // Points to pbirt/
+define('CLIENT_PATH', dirname(__DIR__) . DS); // Points to client/
+define('CONFIG_PATH', __DIR__ . DS);
 define('INC_PATH', CLIENT_PATH . 'inc' . DS);
 define('ASSETS_PATH', CLIENT_PATH . 'assets' . DS);
 define('CLASSES_PATH', CLIENT_PATH . 'classes' . DS);
-define('CSS_PATH', CLIENT_PATH);
+define('CSS_PATH', ASSETS_PATH . 'css' . DS);
 define('JS_PATH', ASSETS_PATH . 'js' . DS);
 
 // ==============================================
@@ -58,20 +66,10 @@ define('JS_PATH', ASSETS_PATH . 'js' . DS);
 // ==============================================
 
 /**
- * Automatically detect and set base URL
+ * Define URL paths based on BASE_URL
  */
-$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
-             (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? 'https://' : 'http://';
-
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$scriptPath = dirname($_SERVER['SCRIPT_NAME']);
-
-// Normalize the script path to avoid double slashes
-$scriptPath = rtrim($scriptPath, '/') . '/';
-
-define('BASE_URL', $protocol . $host . $scriptPath);
-define('ASSETS_URL', BASE_URL . 'assets/');
-define('CSS_URL', BASE_URL);
+define('ASSETS_URL', rtrim(BASE_URL, '/') . '/assets/');
+define('CSS_URL', ASSETS_URL . 'css/');
 define('JS_URL', ASSETS_URL . 'js/');
 
 // ==============================================
@@ -89,15 +87,14 @@ define('JS_URL', ASSETS_URL . 'js/');
  */
 function safe_include($path, $once = true, $required = true) {
     if (!file_exists($path)) {
+        $errorMsg = "File not found: {$path}";
         if ($required) {
-            throw new RuntimeException("File not found: {$path}");
+            throw new RuntimeException($errorMsg);
         }
-        error_log("File not found: {$path}");
+        error_log($errorMsg);
         return false;
     }
-
-    $once ? include_once $path : include $path;
-    return true;
+    return $once ? include_once $path : include $path;
 }
 
 /**
@@ -119,8 +116,8 @@ function include_inc($filename, $once = true) {
 /**
  * Get full system path for a file in specified directory
  *
- * @param string $type Directory type (inc, assets, css, js, classes)
- * @param string $filename File to append to path
+ * @param string $type Directory type (inc, assets, CSS, js, classes, config)
+ * @param string $filename File to append to a path
  * @return string Full system path
  */
 function get_path($type, $filename = '') {
@@ -130,14 +127,15 @@ function get_path($type, $filename = '') {
         'css' => CSS_PATH,
         'js' => JS_PATH,
         'classes' => CLASSES_PATH,
-        'root' => ROOT_PATH
+        'root' => ROOT_PATH,
+        'config' => CONFIG_PATH // Added 'config' to the valid types
     ];
 
     if (!array_key_exists($type, $paths)) {
         throw new InvalidArgumentException("Invalid path type: {$type}");
     }
 
-    return $paths[$type] . ltrim($filename, '/');
+    return rtrim($paths[$type], DS) . DS . ltrim($filename, '/');
 }
 
 // ==============================================
@@ -210,18 +208,18 @@ function include_global_css() {
 // DATABASE AND SESSION INITIALIZATION
 // ==============================================
 
-// Initialize database connection if DBConnection exists
-$dbConnectionFile = get_path('root', 'DBConnection.php');
+// Initialize database connection with a configurable path
+$dbConnectionFile = get_path('classes', 'dbconnection.php'); // Line 212
 if (file_exists($dbConnectionFile)) {
     safe_include($dbConnectionFile);
 } else {
     error_log("Database connection file not found: {$dbConnectionFile}");
 }
 
-// Start session if not already started
+// Start session with secure settings
 if (session_status() === PHP_SESSION_NONE) {
     session_start([
-        'cookie_secure' => ($protocol === 'https://'),
+        'cookie_secure' => (strpos(BASE_URL, 'https://') === 0),
         'cookie_httponly' => true,
         'use_strict_mode' => true
     ]);
