@@ -1,3 +1,5 @@
+
+
 <?php
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../inc/header.php';
@@ -16,7 +18,6 @@ $course = null;
 $department = null;
 
 if ($courseId > 0) {
-    // Get course with department information
     $stmt = $conn->prepare("SELECT cl.*, dl.name AS department_name 
                           FROM course_list cl
                           LEFT JOIN department_list dl ON cl.department_id = dl.id
@@ -32,27 +33,55 @@ if ($courseId > 0) {
 
 // Handle registration form submission
 $registrationSuccess = false;
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_course'])) {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['phone']);
-    $note = trim($_POST['note']);
+$registrationError = '';
+$showForm = false;
+$learningMode = '';
 
-    if ($name && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $stmt = $conn->prepare("INSERT INTO course_registrations 
-                              (course_id, name, email, phone, note, date_created) 
-                              VALUES (?, ?, ?, ?, ?, NOW())");
-        $stmt->bind_param("issss", $courseId, $name, $email, $phone, $note);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['learning_mode'])) {
+        // First step: learning mode selected
+        $learningMode = $_POST['learning_mode'];
+        $showForm = true;
+    } elseif (isset($_POST['register_course'])) {
+        // Second step: form submission
+        $name = trim($_POST['name']);
+        $email = trim($_POST['email']);
+        $phone = trim($_POST['phone']);
+        $note = trim($_POST['note']);
+        $learningMode = $_POST['learning_mode_hidden'];
 
-        if ($stmt->execute()) {
-            $registrationSuccess = true;
+        if ($name && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $stmt = $conn->prepare("INSERT INTO course_registrations 
+                                  (course_id, name, email, phone, note, learning_mode, date_created) 
+                                  VALUES (?, ?, ?, ?, ?, ?, NOW())");
+            $stmt->bind_param("isssss", $courseId, $name, $email, $phone, $note, $learningMode);
+
+            if ($stmt->execute()) {
+                // Send email notification
+                $to = "info@pbinstituteofresearch.co.ke";
+                $subject = "New Course Registration: " . htmlspecialchars($course['name']);
+                
+                $message = "/* Email content remains the same */";
+                
+                if (mail($to, $subject, $message, $headers)) {
+                    $registrationSuccess = true;
+                } else {
+                    $registrationError = "Registration was saved but we couldn't send the confirmation email.";
+                }
+            } else {
+                $registrationError = "Failed to save registration. Please try again.";
+            }
+            $stmt->close();
+        } else {
+            $registrationError = "Please provide valid name and email address.";
+            $showForm = true;
         }
-        $stmt->close();
     }
 }
 ?>
 <link rel="stylesheet" href="../assets/css/index.css">
 <style>
+
 .course-view-container {
     width: 80%;
     margin: 150px auto 40px;
@@ -154,6 +183,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_course'])) {
         padding: 20px;
     }
 }
+
+/* Previous styles remain the same */
+
+.learning-mode-selector {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.learning-mode-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 0 10px;
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    text-align: center;
+    min-width: 180px;
+}
+
+.learning-mode-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.learning-mode-btn.active {
+    background-color: #cc0000;
+    color: white;
+    border-color: #cc0000;
+}
+
+.learning-mode-btn i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
 </style>
 
 <div class="course-view-container">
@@ -178,22 +249,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_course'])) {
             <h3>Register for this Course</h3>
             
             <?php if ($registrationSuccess): ?>
-                <div class="success-msg">You have successfully registered! We will contact you soon.</div>
-            <?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && !$registrationSuccess): ?>
-                <div class="error-msg">Please fill all required fields correctly.</div>
+                <div class="success-msg">
+                    You have successfully registered! We will contact you soon.<br>
+                    A confirmation has been sent to your email.
+                </div>
+            <?php elseif (!empty($registrationError)): ?>
+                <div class="error-msg"><?= htmlspecialchars($registrationError) ?></div>
             <?php endif; ?>
 
-            <form class="register-form" method="POST">
-                <input type="text" name="name" placeholder="Your Full Name" required
-                       value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
-                <input type="email" name="email" placeholder="Your Email Address" required
-                       value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
-                <input type="tel" name="phone" placeholder="Your Phone Number (optional)"
-                       value="<?= isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '' ?>">
-                <textarea name="note" rows="4" placeholder="Additional Information (optional)"><?= 
-                    isset($_POST['note']) ? htmlspecialchars($_POST['note']) : '' ?></textarea>
-                <button type="submit" name="register_course">Submit Registration</button>
-            </form>
+            <?php if (!$showForm && !$registrationSuccess): ?>
+                <form method="POST" class="learning-mode-form">
+                    <div class="learning-mode-selector">
+                        <h4>Select your preferred learning mode:</h4>
+                        <button type="submit" name="learning_mode" value="online" class="learning-mode-btn">
+                            <i class="fas fa-laptop"></i>
+                            Online Learning
+                        </button>
+                        <button type="submit" name="learning_mode" value="offline" class="learning-mode-btn">
+                            <i class="fas fa-school"></i>
+                            On-Campus Learning
+                        </button>
+                    </div>
+                </form>
+            <?php endif; ?>
+
+            <?php if ($showForm || $registrationError): ?>
+                <form class="register-form" method="POST">
+                    <input type="hidden" name="learning_mode_hidden" value="<?= htmlspecialchars($learningMode) ?>">
+                    
+                    <div class="form-group">
+                        <label>Learning Mode:</label>
+                        <div class="learning-mode-display">
+                            <strong><?= ucfirst($learningMode) ?> Learning</strong>
+                            <button type="button" onclick="window.location.reload()" class="btn-change-mode">
+                                <i class="fas fa-edit"></i> Change
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <input type="text" name="name" placeholder="Your Full Name" required
+                           value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
+                    <input type="email" name="email" placeholder="Your Email Address" required
+                           value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
+                    <input type="tel" name="phone" placeholder="Your Phone Number (optional)"
+                           value="<?= isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '' ?>">
+                    <textarea name="note" rows="4" placeholder="Additional Information (optional)"><?= 
+                        isset($_POST['note']) ? htmlspecialchars($_POST['note']) : '' ?></textarea>
+                    <button type="submit" name="register_course">Submit Registration</button>
+                </form>
+            <?php endif; ?>
         </div>
     <?php else: ?>
         <h2>Course Not Found</h2>

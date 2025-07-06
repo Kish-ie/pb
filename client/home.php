@@ -158,7 +158,7 @@
                 <div class="section-header">
                     <h2 id="courses-heading">Our Popular Courses</h2>
                     <p>Choose from our wide range of accredited programs</p>
-                    <a href="/courses" class="btn-link">View All Courses <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="<?php echo BASE_URL; ?>./courses/?page=courses" class="btn-link">View All Courses <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 
                 <div class="courses-grid">
